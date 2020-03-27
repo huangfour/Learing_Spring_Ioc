@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       ">
+
+
+
+<!--       <context:component-scan base-package="ioc"/>-->
+    <bean id="bean" class="Bean.Bean"></bean>
+
+    <bean id="bean2" class="Bean.Create1" factory-method="createBean"></bean>
+
+    <!--实例工厂实例化，使用factory-bean指向实例工厂Bean，使用factory-method属性确定使用工厂的那个方法-->
+    <bean id="Create2" class="Bean.Create2"></bean>
+    <bean id="bean3" factory-bean="Create2" factory-method="createBean"></bean>
+
+    <!--设值注入-->
+    <bean id="user1" class="Bean.User1">
+        <property name="username" value="User1"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+    <!--构造方法注入-->
+    <bean id="user2" class="Bean.User2">
+        <constructor-arg index="0" value="User2"></constructor-arg>
+        <constructor-arg index="1" value="123456"></constructor-arg>
+    </bean>
+
+
+</beans>
