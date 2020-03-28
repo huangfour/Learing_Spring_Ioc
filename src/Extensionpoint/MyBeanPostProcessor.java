@@ -7,20 +7,21 @@ import org.springframework.stereotype.Component;
 /**
  * @author : hong.Four
  * @date : 2020-03-01 00:26
+ * BeanPostProcessor应用在bean被初始化前,且每一个bean在初始化前都会被执行一次
  **/
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("【bean初始化之前，bean is:"+bean.toString()+"beanName is:"+ beanName);
+        System.out.println("【bean初始化之前，bean is:"+bean.toString()+"  beanName is:"+ beanName);
 
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("【bean初始化之后，bean is:"+bean.toString()+"beanName is:"+ beanName);
+        System.out.println("【bean初始化之后，bean is:"+bean.toString()+"  beanName is:"+ beanName);
 
         return bean;
     }

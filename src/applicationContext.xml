@@ -30,5 +30,17 @@
         <constructor-arg index="1" value="123456"></constructor-arg>
     </bean>
 
+    <!--MyBeanFactoryPostProcessor后置增强器-->
+    <bean id="MyBeanFactoryPostProcessor" class="Extensionpoint.MyBeanFactoryPostProcessor"></bean>
+    <!--BeanPostProcessor-->
+    <bean id="BeanPostProcessor" class="Extensionpoint.MyBeanPostProcessor"></bean>
+
+    <!--事件监听者一-->
+    <bean id="EatEventListener" class="lication.EatEventListener"></bean>
+    <!--事件监听者二-->
+    <bean id="EatEventListener1" class="lication.EatEventListener1"></bean>
+    <!--事件发布者-->
+    <bean id="EventPublisher" class="lication.EventPublisher"></bean>
+
 
 </beans>

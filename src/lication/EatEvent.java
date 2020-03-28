@@ -14,7 +14,7 @@ public class EatEvent extends ApplicationEvent {
         super(source);
         this.source = source;
     }
-    public void to() {
+    public void say() {
         System.out.println("事件源被触发");
     }
 }

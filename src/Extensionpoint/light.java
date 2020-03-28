@@ -8,41 +8,35 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @author : hong.Four
  * @date : 2020-02-29 23:59
+ * bean的Aware扩展点
  **/
 
 public class light implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, MessageSourceAware {
 
-    private ApplicationContext applicationContext;
-
-    @Override
-    public void setBeanName(String name) {
-        System.out.println("当前bean的名字:" + name);
-    }
-
-    public void say() {
-        System.out.println("hello world");
-    }
-
 
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
-        System.out.println(classLoader);
+        System.out.println("Aware\nsetBeanClassLoader:HelloWorld");
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println(beanFactory);
+        System.out.println("setBeanFactory:HelloWorld");
+    }
 
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("setBeanName:HelloWorld");
     }
 
     @Override
     public void setMessageSource(MessageSource messageSource) {
-        System.out.println(messageSource);
+        System.out.println("setMessageSource:HelloWorld");
+
     }
 }
