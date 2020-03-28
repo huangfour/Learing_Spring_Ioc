@@ -36,11 +36,11 @@
     <bean id="BeanPostProcessor" class="Extensionpoint.MyBeanPostProcessor"></bean>
 
     <!--事件监听者一-->
-    <bean id="EatEventListener" class="lication.EatEventListener"></bean>
+    <bean id="EatEventListener" class="Lication.EatEventListener"></bean>
     <!--事件监听者二-->
-    <bean id="EatEventListener1" class="lication.EatEventListener1"></bean>
+    <bean id="EatEventListener1" class="Lication.EatEventListener1"></bean>
     <!--事件发布者-->
-    <bean id="EventPublisher" class="lication.EventPublisher"></bean>
+    <bean id="EventPublisher" class="Lication.EventPublisher"></bean>
 
 
 </beans>

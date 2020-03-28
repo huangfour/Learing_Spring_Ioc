@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       ">
+
+    <!--事件监听者一-->
+    <bean id="EatEventListener" class="Lication.EatEventListener"></bean>
+    <!--事件监听者二-->
+    <bean id="EatEventListener1" class="Lication.EatEventListener1"></bean>
+    <!--事件发布者-->
+    <bean id="EventPublisher" class="Lication.EventPublisher"></bean>
+
+
+</beans>

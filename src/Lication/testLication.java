@@ -1,4 +1,4 @@
-package lication;
+package Lication;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  **/
 public class testLication {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context= new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context= new ClassPathXmlApplicationContext("Lication/lication.xml");
 
         EatEvent xEvent = new EatEvent(true);
 //        Way 1：利用context方法进行触发

@@ -1,4 +1,4 @@
-package lication;
+package Lication;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

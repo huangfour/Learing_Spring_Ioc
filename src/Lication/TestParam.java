@@ -1,4 +1,4 @@
-package lication;
+package Lication;
 
 /**
  * @author : hong.Four
