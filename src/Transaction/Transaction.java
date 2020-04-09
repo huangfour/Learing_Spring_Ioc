@@ -20,7 +20,7 @@ public class Transaction {
 //
 //    }
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("Transaction/Transaction.xml");
+        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("Transaction/Transaction_unAnnotation.xml");
         AccountDao accountDao=applicationContext.getBean("accountDao",AccountDao.class);
         accountDao.transfer("Tom","Bob", (double) 100);
 

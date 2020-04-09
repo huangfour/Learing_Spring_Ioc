@@ -44,7 +44,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+//    @Transactional(propagation = Propagation.REQUIRED)
     public void transfer(String outUser, String inUser, Double money) {
         jdbcTemplate.update("update account set balance =balance +? "+"where username= ?",money,inUser);
         int i=1/0;
