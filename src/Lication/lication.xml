@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        ">
+<!--    <context:component-scan base-package="Lication.demo1"></context:component-scan>-->
+
 
     <!--事件监听者一-->
     <bean id="EatEventListener" class="Lication.EatEventListener"></bean>

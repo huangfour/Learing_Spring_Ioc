@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Transaction {
 //    @Test
 //    public void addAccountTest(){
-//        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("Transaction/Transaction.xml");
+//        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("Transaction/mybatis-config.xml");
 //        AccountDao accountDao=applicationContext.getBean("accountDao",AccountDao.class);
 //        Account account=new Account();
 //        account.setId(1);
