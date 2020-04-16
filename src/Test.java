@@ -1,6 +1,8 @@
 import Bean.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.concurrent.Executor;
+
 /**
  * @author : hong.Four
  * @date : 2020-03-27 22:46
@@ -10,5 +12,6 @@ public class Test {
         ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
         Bean bean=(Bean) applicationContext.getBean("bean");
         System.out.println(bean);
+//        Executor executor=new
     }
 }

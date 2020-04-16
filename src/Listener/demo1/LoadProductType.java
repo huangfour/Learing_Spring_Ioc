@@ -1,4 +1,4 @@
-package Lication.demo1;
+package Listener.demo1;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

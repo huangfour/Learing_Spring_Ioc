@@ -7,15 +7,15 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        ">
-<!--    <context:component-scan base-package="Lication.demo1"></context:component-scan>-->
+<!--    <context:component-scan base-package="Listener.demo1"></context:component-scan>-->
 
 
     <!--事件监听者一-->
-    <bean id="EatEventListener" class="Lication.EatEventListener"></bean>
+    <bean id="EatEventListener" class="Listener.EatEventListener"></bean>
     <!--事件监听者二-->
-    <bean id="EatEventListener1" class="Lication.EatEventListener1"></bean>
+    <bean id="EatEventListener1" class="Listener.EatEventListener1"></bean>
     <!--事件发布者-->
-    <bean id="EventPublisher" class="Lication.EventPublisher"></bean>
+    <bean id="EventPublisher" class="Listener.EventPublisher"></bean>
 
 
 </beans>

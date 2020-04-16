@@ -1,4 +1,4 @@
-package Lication.demo1;
+package Listener.demo1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
