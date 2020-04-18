@@ -12,6 +12,6 @@ public class Test {
         ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
         Bean bean=(Bean) applicationContext.getBean("bean");
         System.out.println(bean);
-//        Executor executor=new
+//        JUC.Executor executor=new
     }
 }

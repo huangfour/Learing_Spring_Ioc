@@ -7,4 +7,17 @@
         select id,username,balance from account where id=#{id}
     </select>
 
+    <select id="findByName" parameterType="String" resultType="MyBatis.account">
+        select id,username,balance from account where username like '%${value}%'
+
+    </select>
+
+    <delete id="deleteById" parameterType="integer">
+        delete from account where id=#{id}
+    </delete>
+
+    <insert id="insertAccount" parameterType="MyBatis.account">
+        insert account(id,username,balance) values (#{id},#{username},#{balance})
+    </insert>
+
 </mapper>

@@ -1,4 +1,4 @@
-package Executor;
+package JUC.Executor;
 
 
 import java.util.concurrent.*;
@@ -13,8 +13,8 @@ public class ThreadPoolExecutorTest {
         //创建线程
         ThreadPoolExecutor pool = new ThreadPoolExecutor(
                 2,              //coreSize
-                2,              //MaxSize
-                60,             //60
+                4,         //MaxSize
+                60,           //60
                 TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(2)         //指定一种队列 （有界队列）
                 //new LinkedBlockingQueue<Runnable>()
@@ -26,6 +26,7 @@ public class ThreadPoolExecutorTest {
         MyTask mt4 = new MyTask(4, "任务4");
         MyTask mt5 = new MyTask(5, "任务5");
         MyTask mt6 = new MyTask(6, "任务6");
+
 
         pool.execute(mt1);
         pool.execute(mt2);

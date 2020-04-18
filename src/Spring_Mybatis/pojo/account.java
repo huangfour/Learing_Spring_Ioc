@@ -1,4 +1,4 @@
-package Spring_MyBatis;
+package Spring_Mybatis.pojo;
 
 /**
  * @author : hong.Four
@@ -36,7 +36,7 @@ public class account {
 
     @Override
     public String toString() {
-        return "account{" +
+        return "com.test.pojo.account{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", balance=" + balance +

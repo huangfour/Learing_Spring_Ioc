@@ -22,6 +22,13 @@ public class MybatisTest {
         SqlSession session=sqlSessionFactory.openSession();
         TestMybatis testMybatis=session.getMapper(TestMybatis.class);
         System.out.println(testMybatis.findById(3).toString());
+        System.out.println(testMybatis.findByName("Bo"));
+        account ac=new account();
+        ac.setId(20);
+        ac.setBalance(10000);
+        ac.setUsername("Lucy");
+        System.out.println(testMybatis.insertAccount(ac)==1 ? "成功" : "失败");
+        System.out.println(testMybatis.deleteById(3)==1 ? "成功" : "失败");
         session.commit();
 
 

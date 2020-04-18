@@ -1,12 +1,15 @@
-package Spring_MyBatis;
+package Spring_Mybatis.dao;
 
-import MyBatis.account;
+
+import Spring_Mybatis.pojo.account;
+
 
 /**
  * @author : hong.Four
  * @date : 2020-04-12 20:09
  **/
-public interface TestMybatis {
+
+public interface MybatisDao {
 
     public account findById(Integer id);
 
