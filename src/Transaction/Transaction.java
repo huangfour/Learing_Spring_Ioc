@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date : 2020-04-02 19:30
  **/
 public class Transaction {
-//    @Test
+//    @test.Test
 //    public void addAccountTest(){
 //        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("Transaction/mybatis-config.xml");
 //        AccountDao accountDao=applicationContext.getBean("accountDao",AccountDao.class);

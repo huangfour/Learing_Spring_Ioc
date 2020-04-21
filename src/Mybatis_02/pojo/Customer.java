@@ -1,14 +1,14 @@
-package MyBatis;
+package Mybatis_02.pojo;
 
 /**
  * @author : hong.Four
- * @date : 2020-04-12 20:11
+ * @date : 2020-04-21 10:54
  **/
-public class account {
-
+public class Customer {
     private Integer id;
     private String username;
-    private float balance;
+    private String jobs;
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -26,20 +26,29 @@ public class account {
         this.username = username;
     }
 
-    public float getBalance() {
-        return balance;
-    }
-
-    public void setBalance(float balance) {
-        this.balance = balance;
+    public String getJobs() {
+        return jobs;
     }
 
     @Override
     public String toString() {
-        return "account{" +
+        return "Customer{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", balance=" + balance +
+                ", jobs='" + jobs + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
+    }
+
+    public void setJobs(String jobs) {
+        this.jobs = jobs;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

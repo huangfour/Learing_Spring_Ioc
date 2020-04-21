@@ -2,8 +2,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <environments default="mysql">
+    <environments default="mysql_">
         <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost/spring?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+        <environment id="mysql_">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -14,6 +23,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="MyBatis/testMybatisMappers.xml"></mapper>
+        <mapper resource="MyBatis_01/testMybatisMappers.xml"></mapper>
     </mappers>
 </configuration>

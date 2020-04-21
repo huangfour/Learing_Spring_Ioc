@@ -1,7 +1,7 @@
+package Test;
+
 import Bean.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.concurrent.Executor;
 
 /**
  * @author : hong.Four

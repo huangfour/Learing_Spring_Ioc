@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="MyBatis.TestMybatis">
+<mapper namespace="MyBatis_01.TestMybatis">
 
-    <select id="findById" parameterType="Integer" resultType="MyBatis.account">
+    <select id="findById" parameterType="Integer" resultType="MyBatis_01.account">
         select id,username,balance from account where id=#{id}
     </select>
 
-    <select id="findByName" parameterType="String" resultType="MyBatis.account">
+    <select id="findByName" parameterType="String" resultType="MyBatis_01.account">
         select id,username,balance from account where username like '%${value}%'
 
     </select>
@@ -16,7 +16,7 @@
         delete from account where id=#{id}
     </delete>
 
-    <insert id="insertAccount" parameterType="MyBatis.account">
+    <insert id="insertAccount" parameterType="MyBatis_01.account">
         insert account(id,username,balance) values (#{id},#{username},#{balance})
     </insert>
 

@@ -1,4 +1,4 @@
-package MyBatis;
+package MyBatis_01;
 
 /**
  * @author : hong.Four

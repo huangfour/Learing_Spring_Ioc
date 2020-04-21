@@ -1,13 +1,11 @@
-/**
+package Test; /**
  * @author : hong.Four
  * @date : 2020-04-16 15:11
  **/
 
 import java.lang.annotation.Annotation;
-import java.lang.annotation.Retention;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class ClassTest {
 
@@ -61,7 +59,7 @@ public class ClassTest {
             System.out.println(c);
         }
         //使用forName()加载内部类
-        //Class inClazz = Class.forName("ClassTest$Inner");
+        //Class inClazz = Class.forName("test.ClassTest$Inner");
         //通过getDeclaringClass()访问该类所在的外部类
         //System.out.println("inClazz对应的外部类： " + inClazz.getDeclaringClass());
         System.out.println("ClassTest的包为： " + clazz.getPackage());

@@ -10,7 +10,7 @@
 
 
 
-<!--       <context:component-scan base-package="ioc"/>-->
+<!--       <context:component-scan base-package="Extensionpoint"/>-->
     <bean id="bean" class="Bean.Bean"></bean>
 
     <bean id="bean2" class="Bean.Create1" factory-method="createBean"></bean>
