@@ -38,8 +38,60 @@ public class MybatisTest {
     }
 
 
+    public static void findAllCustomer(){
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        CustomerDao customer=sqlSession.getMapper(CustomerDao.class);
+        System.out.println(customer.findAllAccount());
+
+    }
+
+    public static void findCustomerByNameAndJobs(){
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        CustomerDao customer=sqlSession.getMapper(CustomerDao.class);
+        Customer customer1=new Customer();
+        customer1.setUsername("j");
+//        customer1.setJobs("doctor");
+        System.out.println(customer.findCustomerByNameAndJobs(customer1));
+
+    }
+
+    public static void findCustomerByNameOrJobs(){
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        CustomerDao customer=sqlSession.getMapper(CustomerDao.class);
+        Customer customer2=new Customer();
+        customer2.setUsername("jack");
+        customer2.setJobs("teacher");
+        System.out.println(customer.findCustomerByNameOrJobs(customer2));
+    }
+
+    public static void updateCustomer() {
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        CustomerDao customerDao=sqlSession.getMapper(CustomerDao.class);
+        Customer customer3=new Customer();
+        customer3.setId(1);
+        customer3.setUsername("joy");
+
+        System.out.println(customerDao.updateCustomer(customer3));
+        sqlSession.commit();
+        sqlSession.close();
+
+
+    }
     public static void main(String[] args) throws Exception {
-        new MybatisTest().addCustomerTest();
+//        new MybatisTest().addCustomerTest();
+//        SqlSession sqlSession = MybatisUtils.getSession();
+//        CustomerDao customerDao=sqlSession.getMapper(CustomerDao.class);
+//        //测试MyBatis的一级缓存
+//        System.out.println(customerDao.findAccountById(8));
+//        System.out.println("第一次执行结束");
+//        System.out.println(customerDao.findAccountById(8));
+//        System.out.println("第二次执行结束");
+        MybatisTest.updateCustomer();
+
 
     }
 }

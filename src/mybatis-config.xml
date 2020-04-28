@@ -2,12 +2,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
     <!-- .读取db.properties -->
     <properties resource="db.properties"/>
+    <settings>
+        <setting name="logImpl" value="COMMONS_LOGGING"/>
+    </settings>
     <typeAliases>
 <!--        使用别名-->
         <typeAlias alias="Customer" type="Mybatis_02.pojo.Customer"></typeAlias>
     </typeAliases>
+    
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"></transactionManager>

@@ -20,21 +20,30 @@ public class ThreadLocalTest {
     //每个线程打印自己的时间
     //利用ThreadLocal为线程池当中的coreThread线程创建一个属于自己的对象。
     public static String date(int seconds) {
-        Date date = new Date(1000 * seconds);
-        SimpleDateFormat dataFormat=ThreadSafeFormatter.dataFormatThreadLocal.get();
-        return dataFormat.format(date);
+        try {
+            Date date = new Date(1000 * seconds);
+            SimpleDateFormat dataFormat=ThreadSafeFormatter.dataFormatThreadLocal.get();
+            System.out.println(ThreadSafeFormatter_01.dataFormatThreadLocal.get());
+            return dataFormat.format(date);
+        }finally {
+            /*在线程池中,当线程退出之前一定要记得调用remove方法，因为在线程池中的线程对象是循环使用的*/
+            ThreadSafeFormatter.dataFormatThreadLocal.remove();
+        }
+
+
+
     }
 
 
     public static void main(String[] args) throws InterruptedException {
-        for (int i=0;i<1000;i++){
+        for (int i=0;i<100;i++){
             int finalId = i;
-
             pool.submit(new Runnable() {
                 @Override
                 public void run() {
                     String date=ThreadLocalTest.date(finalId);
-                    System.out.println(date+" , "+Thread.currentThread().getId());
+                    System.out.println(date+" , "+Thread.currentThread().getName());
+
                 }
             });
 

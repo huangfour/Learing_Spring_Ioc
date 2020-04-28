@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mybatis_02.dao.CustomerDao">
+    <resultMap id="resultMap" type="Customer">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"/>
+        <result property="jobs" column="jobs"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+
+
     <select id="findAccountById" parameterType="Integer" resultType="Customer">
             select * from t_customer where id=#{id}
     </select>
@@ -9,7 +17,83 @@
 
     <insert id="addCustomer" parameterType="Customer" keyProperty="id" useGeneratedKeys="true">
 	insert into t_customer(username,jobs,phone) values(#{username},#{jobs},#{phone})
-</insert>
+    </insert>
+
+    <select id="findAllAccount" resultMap="resultMap">
+        select id,username,jobs,phone from t_customer
+    </select>
+
+<!--使用sql动态语句-->
+
+<!--    <select id="findCustomerByNameAndJobs" parameterType="Customer" resultType="Customer">-->
+<!--        select id ,username,jobs,phone from t_customer where 1=1-->
+<!--        <if test="username !=null and username !=''">-->
+<!--            and username like '%${username}%'-->
+<!--        </if>-->
+<!--        <if test="jobs !=null and jobs !=''">-->
+<!--            and jobs=#{jobs}-->
+<!--        </if>-->
+<!--    </select>-->
+
+
+<!--    利用where来替换where 1=1-->
+<!--    <select id="findCustomerByNameAndJobs" parameterType="Customer" resultType="Customer">-->
+<!--        select id ,username,jobs,phone from t_customer-->
+<!--        <where>-->
+<!--            <if test="username !=null and username !=''">-->
+<!--                and username like '%${username}%'-->
+<!--            </if>-->
+<!--            <if test="jobs !=null and jobs !=''">-->
+<!--                and jobs=#{jobs}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+    <!--利用trim元素实现类似where功能-->
+    <select id="findCustomerByNameAndJobs" parameterType="Customer" resultType="Customer">
+        select id ,username,jobs,phone from t_customer
+        <trim prefix="where" prefixOverrides="and">
+            <if test="username !=null and username !=''">
+                and username like '%${username}%'
+            </if>
+            <if test="jobs !=null and jobs !=''">
+                and jobs=#{jobs}
+            </if>
+        </trim>
+    </select>
+
+    <select id="findCustomerByNameOrJobs" parameterType="Customer" resultType="Customer">
+         select id ,username,jobs,phone from t_customer where 1=1
+         <choose>
+             <when test="username!=null and username !=''">
+                 and username like '%${username}%'
+             </when>
+             <when test="jobs!=null and username!=''">
+                 and jobs=#{jobs}
+             </when>
+             <otherwise>
+                 and phone is not null
+             </otherwise>
+         </choose>
+    </select>
+
+<!--    set的使用-->
+    <update id="updateCustomer" parameterType="Customer">
+        update t_customer
+        <set>
+            <if test="username!=null and username !=''">
+                username=#{username},
+            </if>
+            <if test="jobs!=null and jobs!=''">
+                jobs=#{jobs},
+            </if>
+            <if test="phone !=null and phone !=''">
+                phone=#{phone}
+            </if>
+        </set>
+        where id= #{id}
+    </update>
+
 
 
 </mapper>
