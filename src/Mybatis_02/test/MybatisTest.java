@@ -5,6 +5,9 @@ import Mybatis_02.pojo.Customer;
 import Mybatis_02.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author : hong.Four
  * @date : 2020-04-21 11:14
@@ -81,6 +84,17 @@ public class MybatisTest {
 
 
     }
+
+    public  static void findAccountsByIds(){
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        CustomerDao customerDao=sqlSession.getMapper(CustomerDao.class);
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        System.out.println(customerDao.findAccountsByIds(list));
+
+    }
     public static void main(String[] args) throws Exception {
 //        new MybatisTest().addCustomerTest();
 //        SqlSession sqlSession = MybatisUtils.getSession();
@@ -90,7 +104,7 @@ public class MybatisTest {
 //        System.out.println("第一次执行结束");
 //        System.out.println(customerDao.findAccountById(8));
 //        System.out.println("第二次执行结束");
-        MybatisTest.updateCustomer();
+        MybatisTest.findCustomerByNameAndJobs();
 
 
     }

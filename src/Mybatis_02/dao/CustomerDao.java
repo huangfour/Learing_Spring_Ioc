@@ -24,5 +24,7 @@ public interface CustomerDao {
 
     public Integer updateCustomer(Customer customer);
 
+    public List<Customer> findAccountsByIds(@Param("ids") List ids);
+
 
 }

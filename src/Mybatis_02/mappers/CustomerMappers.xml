@@ -50,11 +50,28 @@
 <!--    </select>-->
 
     <!--利用trim元素实现类似where功能-->
+<!--    <select id="findCustomerByNameAndJobs" parameterType="Customer" resultType="Customer">-->
+<!--        select id ,username,jobs,phone from t_customer-->
+<!--        <trim prefix="where" prefixOverrides="and">-->
+<!--            <if test="username !=null and username !=''">-->
+<!--                and username like '%${username}%'-->
+<!--            </if>-->
+<!--            <if test="jobs !=null and jobs !=''">-->
+<!--                and jobs=#{jobs}-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </select>-->
+<!--    -->
+
+<!--    使用trim元素和bind元素-->
     <select id="findCustomerByNameAndJobs" parameterType="Customer" resultType="Customer">
+        <!--这里的_parameter代表传进来的参数-->
+
+        <bind name="username_bind" value="'%'+_parameter.username+'%'"/>
         select id ,username,jobs,phone from t_customer
         <trim prefix="where" prefixOverrides="and">
             <if test="username !=null and username !=''">
-                and username like '%${username}%'
+                and username like #{username_bind}
             </if>
             <if test="jobs !=null and jobs !=''">
                 and jobs=#{jobs}
@@ -93,6 +110,14 @@
         </set>
         where id= #{id}
     </update>
+
+<!--    foreach的使用-->
+    <select id="findAccountsByIds" parameterType="List" resultType="Customer">
+        select username,jobs,phone from t_customer where id in
+        <foreach collection="ids" index="id" open="("  separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
 
 
 
