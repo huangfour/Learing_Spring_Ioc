@@ -114,10 +114,11 @@
 <!--    foreach的使用-->
     <select id="findAccountsByIds" parameterType="List" resultType="Customer">
         select username,jobs,phone from t_customer where id in
-        <foreach collection="ids" index="id" open="("  separator="," close=")">
+        <foreach collection="list" item="id" open="("  separator="," close=")">
             #{id}
         </foreach>
     </select>
+
 
 
 

@@ -95,6 +95,7 @@ public class MybatisTest {
         System.out.println(customerDao.findAccountsByIds(list));
 
     }
+
     public static void main(String[] args) throws Exception {
 //        new MybatisTest().addCustomerTest();
 //        SqlSession sqlSession = MybatisUtils.getSession();
@@ -104,7 +105,7 @@ public class MybatisTest {
 //        System.out.println("第一次执行结束");
 //        System.out.println(customerDao.findAccountById(8));
 //        System.out.println("第二次执行结束");
-        MybatisTest.findCustomerByNameAndJobs();
+        MybatisTest.findAccountsByIds();
 
 
     }

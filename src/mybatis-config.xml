@@ -11,6 +11,8 @@
     <typeAliases>
 <!--        使用别名-->
         <typeAlias alias="Customer" type="Mybatis_02.pojo.Customer"></typeAlias>
+        <typeAlias type="Mybatis_02.pojo.IdCard" alias="IdCard"></typeAlias>
+        <typeAlias type="Mybatis_02.pojo.Person" alias="Person"></typeAlias>
     </typeAliases>
     
     <environments default="mysql">
@@ -26,5 +28,7 @@
     </environments>
     <mappers>
         <mapper resource="Mybatis_02/mappers/CustomerMappers.xml"></mapper>
+        <mapper resource="Mybatis_02/mappers/IdcardMappers.xml"></mapper>
+        <mapper resource="Mybatis_02/mappers/PersonMappers.xml"></mapper>
     </mappers>
 </configuration>
