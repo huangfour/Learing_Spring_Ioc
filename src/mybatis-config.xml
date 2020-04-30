@@ -6,23 +6,32 @@
     <!-- .读取db.properties -->
     <properties resource="db.properties"/>
     <settings>
+        <!-- 配置日志-->
         <setting name="logImpl" value="COMMONS_LOGGING"/>
+        <!--配置延迟加载-->
+        <!-- 启用延迟加载特性，不配置默认关闭该特性-->
+        <setting name="lazyLoadingEnabled" value="true"></setting>
+        <!-- 按需加载: false:使用关联属性，及时加载;
+        true,加载对象，则加载所有属性， -->
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
     <typeAliases>
-<!--        使用别名-->
+        <!--        使用别名-->
         <typeAlias alias="Customer" type="Mybatis_02.pojo.Customer"></typeAlias>
         <typeAlias type="Mybatis_02.pojo.IdCard" alias="IdCard"></typeAlias>
         <typeAlias type="Mybatis_02.pojo.Person" alias="Person"></typeAlias>
+        <typeAlias type="Mybatis_02.pojo.User" alias="User"></typeAlias>
+        <typeAlias type="Mybatis_02.pojo.Orders" alias="Orders"></typeAlias>
     </typeAliases>
-    
+
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
-                <property name="username" value="${jdbc.username}" />
-                <property name="password" value="${jdbc.password}" />
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
@@ -30,5 +39,6 @@
         <mapper resource="Mybatis_02/mappers/CustomerMappers.xml"></mapper>
         <mapper resource="Mybatis_02/mappers/IdcardMappers.xml"></mapper>
         <mapper resource="Mybatis_02/mappers/PersonMappers.xml"></mapper>
+        <mapper resource="Mybatis_02/mappers/UserMapper.xml"></mapper>
     </mappers>
 </configuration>

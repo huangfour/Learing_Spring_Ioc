@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mybatis_02.dao.PersonDao">
-    <!-- 嵌套查询 一对一 方法一-->
+
+    <!-- 嵌套查询 （一对一） 方法一-->
     <resultMap type="Person" id="IdCardWithPersonResult">
         <id property="id" column="id"></id>
         <result property="name" column="name"></result>
@@ -15,8 +16,6 @@
 
     <select id="getPersonById" parameterType="integer" resultMap="IdCardWithPersonResult">
             select id,name,age,sex,card_id from tb_person where id=#{id}
-
-
     </select>
 
 
@@ -31,6 +30,8 @@
             <result property="code" column="code"></result>
         </association>
     </resultMap>
+
+
     <select id="findPersonById" parameterType="integer" resultMap="IdCardWithPersonResult_">
                     SELECT
 	                tb_person.id,
