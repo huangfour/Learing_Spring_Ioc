@@ -1,0 +1,10 @@
+###Spring整合有俩种方式
+-------------------------------------------------
+一种是传统的Dao整合
+bean在配置文件进行配置当中，实例化后直接生成SqlSession使用
+SqlSessionTemplate
+SqlSessionDaoSupport
+-------------------------------------------------
+另一种是接口编程方式，也有俩种：
+基于MapperFactoryBean的整合
+基于MapperScannerConfigurer的整合

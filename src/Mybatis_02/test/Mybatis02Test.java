@@ -1,11 +1,14 @@
 package Mybatis_02.test;
 
 import Mybatis_02.dao.CustomerDao;
+import Mybatis_02.dao.OrdersDao;
 import Mybatis_02.dao.PersonDao;
 import Mybatis_02.dao.UserDao;
 import Mybatis_02.pojo.Person;
+import Mybatis_02.pojo.User;
 import Mybatis_02.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.time.Period;
 
@@ -36,14 +39,23 @@ public class Mybatis02Test {
         // 通过SqlSessionFactory创建SqlSession
         SqlSession sqlSession = MybatisUtils.getSession();
         UserDao userDao=sqlSession.getMapper(UserDao.class);
-        System.out.println(userDao.fingUserWithOrders(1));
+        User user=userDao.fingUserWithOrders(1);
+//        System.out.println(user);
 
+    }
+//    多对多级联
+    public static void findOrdersWithProduct(){
+        // 通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = MybatisUtils.getSession();
+        OrdersDao ordersDao=sqlSession.getMapper(OrdersDao.class);
+        System.out.println(ordersDao.findOrdersWithProduct(1));
 
     }
 
 
+
     public static void main(String[] args) {
-        Mybatis02Test.fingUserWithOrders();
+        Mybatis02Test.findOrdersWithProduct();
 
     }
 }

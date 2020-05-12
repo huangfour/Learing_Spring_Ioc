@@ -3,27 +3,45 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mybatis_02.dao.UserDao">
 
+    <!--    <resultMap id="UserWithOrdersResult" type="User">-->
+    <!--        <id column="id" property="id"></id>-->
+    <!--        <result column="username" property="username"></result>-->
+    <!--        <result column="address" property="address"></result>-->
+    <!--        <collection property="orderList" ofType="Orders">-->
+    <!--            <id column="id" property="id"></id>-->
+    <!--            <result column="number" property="number"></result>-->
+    <!--        </collection>-->
+    <!--    </resultMap>-->
+    <!--    &lt;!&ndash;一对多：查看某一用户及其关联的订单信息。-->
+    <!--    注意：当关联查询出的列名称相同，则需要使用别名区分-->
+    <!--   （u.id代表User表的id,o.id代表Orders表的 id）  &ndash;&gt;-->
+    <!--    <select id="fingUserWithOrders" parameterType="Integer" resultMap="UserWithOrdersResult">-->
+    <!--        SELECT u.id,username,address,o.id as order_id,o.number-->
+    <!--        FROM tb_user u,tb_orders o-->
+    <!--        where u.id=o.user_id-->
+    <!--        AND u.id=#{id}-->
+    <!--    </select>-->
+
+
     <resultMap id="UserWithOrdersResult" type="User">
         <id column="id" property="id"></id>
         <result column="username" property="username"></result>
         <result column="address" property="address"></result>
-        <collection property="orderList" ofType="Orders">
-            <id column="id" property="id"></id>
-            <result column="number" property="number"></result>
+        <collection column="id" property="orderList" javaType="List"
+                    select="Mybatis_02.dao.OrdersDao.findOrdersById">
         </collection>
     </resultMap>
-    <!--一对多：查看某一用户及其关联的订单信息。
-    注意：当关联查询出的列名称相同，则需要使用别名区分
-（u.id代表User表的id,o.id代表Orders表的 id）  -->
+
+
     <select id="fingUserWithOrders" parameterType="Integer" resultMap="UserWithOrdersResult">
-        SELECT u.id,username,address,o.id as order_id,o.number
-        FROM tb_user u,tb_orders o
-        where u.id=o.user_id
-        AND u.id=#{id}
+        SELECT
+        id,username,address
+        FROM
+        tb_user
+        where
+        id=#{id}
+
     </select>
-
-
-
 
 
 </mapper>

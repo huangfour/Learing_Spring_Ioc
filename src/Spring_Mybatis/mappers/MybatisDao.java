@@ -1,4 +1,4 @@
-package Spring_Mybatis.dao;
+package Spring_Mybatis.mappers;
 
 
 import Spring_Mybatis.pojo.account;

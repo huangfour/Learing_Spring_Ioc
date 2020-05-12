@@ -22,6 +22,7 @@
         <typeAlias type="Mybatis_02.pojo.Person" alias="Person"></typeAlias>
         <typeAlias type="Mybatis_02.pojo.User" alias="User"></typeAlias>
         <typeAlias type="Mybatis_02.pojo.Orders" alias="Orders"></typeAlias>
+        <typeAlias type="Mybatis_02.pojo.Product" alias="Product"></typeAlias>
     </typeAliases>
 
     <environments default="mysql">
@@ -40,5 +41,7 @@
         <mapper resource="Mybatis_02/mappers/IdcardMappers.xml"></mapper>
         <mapper resource="Mybatis_02/mappers/PersonMappers.xml"></mapper>
         <mapper resource="Mybatis_02/mappers/UserMapper.xml"></mapper>
+        <mapper resource="Mybatis_02/mappers/OrdersMappers.xml"></mapper>
+        <mapper resource="Mybatis_02/mappers/ProductMap.xml"></mapper>
     </mappers>
 </configuration>

@@ -21,19 +21,28 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-
+<!--     开启事务注解-->
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 
 
 <!--我们可以选择在这里去配置原来属于mybatis的配置信息，或者是导入一个单独配置好了mybatis的xml文件-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
+<!--利用指定路径的方式加载对应接口（way1）-->
         <property name="mapperLocations" value="classpath:Spring_Mybatis/mappers/MybatisDao.xml"></property>
     </bean>
 
-    <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
-        <property value="Spring_Mybatis.dao" name="basePackage"/>
+<!--基于MapperFactoryBean的整合-->
+    <bean id="MybatisDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="Spring_Mybatis.mappers.MybatisDao"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
+
+<!--基于MapperScannerConfigurer的整合,Spring会自动通过包中的接口来生成映射器-->
+<!--用包扫描的方法加载对应接口（way2）-->
+<!--    <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer" >-->
+<!--        <property value="Spring_Mybatis.dao" name="basePackage"/>-->
+<!--    </bean>-->
 
 
 </beans>
